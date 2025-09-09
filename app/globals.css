@@ -1,26 +1,12 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+@plugin "@tailwindcss/forms";
+@custom-variant dark (&:where(.dark, .dark *));
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply dark:bg-[#17332d]  container mx-auto max-w-7xl bg-slate-100 text-[#17332d] dark:text-white  min-h-screen flex flex-col;
+}
+.Wrapper {
+  @apply px-10;
+}
+.errors {
+  @apply text-red-500 mt-1;
 }
