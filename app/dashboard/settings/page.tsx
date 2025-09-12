@@ -14,7 +14,7 @@ export default async function Page() {
   console.log(defaults);
   return (
     <>
-      <div>Settings</div>
+      <div className='text-2xl mb-3'>Settings</div>
       <SettingsForm defaults={defaults} />
     </>
   );

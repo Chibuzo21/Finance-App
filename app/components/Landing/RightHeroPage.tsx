@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 export default function RightHeroPage() {
   return (
     <motion.div
@@ -8,8 +9,15 @@ export default function RightHeroPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.1 }}
       className='relative'>
-      <div className='relative rounded-3xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 lg:p-8'>
-        <div className='flex items-center justify-between pb-4'>
+      <div className='relative rounded-3xl shadow-sm p-4 sm:p-6 lg:p-8'>
+        <Image
+          src='/phone.png'
+          alt='Phone image '
+          // className=' w-full h-auto'
+          width={400}
+          height={400}
+        />
+        {/* <div className='flex items-center justify-between pb-4'>
           <div className='h-6 w-40 bg-slate-100 rounded' />
           <div className='h-6 w-20 bg-slate-100 rounded' />
         </div>
@@ -26,7 +34,7 @@ export default function RightHeroPage() {
             <div className='h-40 w-full rounded-xl bg-slate-100' />
             <div className='mt-3 h-3 w-1/3 rounded bg-slate-100' />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className='absolute -bottom-6 -right-6 hidden sm:block'>
         <div className='rounded-2xl border border-slate-200 dark:bg-white p-3 shadow-sm bg-[#17332d]'>

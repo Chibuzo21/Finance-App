@@ -22,7 +22,9 @@ export default forwardRef(function Input(
     <input
       {...props}
       ref={ref}
-      className={styles[props.type] ?? styles["default"]}
+      className={`${styles[props.type] ?? styles["default"]} ${
+        props.className
+      }`}
     />
   );
 });

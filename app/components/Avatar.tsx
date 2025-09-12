@@ -18,13 +18,14 @@ export default async function Avatar({ width = 32, height = 32 }: HW) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  let Avatar = user?.user_metadata.avatar;
+  if (!user || !Avatar) {
     return <CircleUser className='h-6 w-6' />;
   }
 
   const { data, error } = await supabase.storage
     .from("Avatars")
-    .createSignedUrl(user.user_metadata.avatar, 60 * 5);
+    .createSignedUrl(Avatar, 60 * 5);
   // Recall that we uploaded the avatar to the metadata earlier, now we are trying to create a url for that file which will be available to the public for only 5 mins (60 secs * 5), this could be available for download. This is due to the fact we used row level security to secure our bucket so as to make it available only for the logged user
   // if the bucket was public, then getPublicUrl will be used in place of createSignedUrl
 

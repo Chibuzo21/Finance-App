@@ -6,13 +6,19 @@ import { createClient } from "./lib/supabase/server";
 export async function middleware(request: NextRequest) {
   const supabase = await createClient();
   const response = await updateSession(request);
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
+
+  const path = request.nextUrl.pathname;
+  if (!user && path.startsWith("/dashboard")) {
     return Response.redirect(new URL("/login", request.url));
   }
-  if (user && request.nextUrl.pathname.startsWith("/login")) {
+  if (
+    user &&
+    (path === "/" || path.startsWith("/login") || path.startsWith("/signup"))
+  ) {
     return Response.redirect(new URL("/dashboard", request.url));
   }
   return response;

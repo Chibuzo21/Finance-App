@@ -130,9 +130,12 @@ export default function TransactionForm({
         </div>
         <div className='flex justify-between items-center '>
           {lastError && <p className='errors'>{String(lastError)}</p>}
-          <Button type='submit' disabled={isSaving}>
+          <button
+            className='bg-[#0b1916] rounded-md hover:bg-[#29574d] text-white dark:bg-white dark:hover:bg-[#29574d] disabled:opacity-50 px-5 py-2 font-medium dark:text-[#0b1916]'
+            type='submit'
+            disabled={isSaving}>
             Save
-          </Button>
+          </button>
         </div>
       </div>
     </form>

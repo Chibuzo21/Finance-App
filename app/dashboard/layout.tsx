@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import HeaderCard from "../components/Landing/HeaderCard";
-import PageHeader from "../components/page-header";
 import { KeyRound } from "lucide-react";
 import Avatar from "../components/Avatar";
 import SignOut from "../components/sign-out";
@@ -21,7 +20,9 @@ export default async function Layout({
           user && (
             <div className='flex hover:bg-[#1a3a3258] px-3  rounded-md items-center space-x-4'>
               <Avatar />
-              <span>{user?.user_metadata.fullName ?? user?.email}</span>
+              <span>
+                {user?.user_metadata.fullName ?? user?.user_metadata.username}
+              </span>
               {/* Recall we added the fullname property in our actions updateSettings.ts */}
             </div>
           )
@@ -38,7 +39,6 @@ export default async function Layout({
       <div className='Wrapper max-w-6xl py-10 mx-auto container'>
         {children}
       </div>
-      <footer className='mt-auto  text-center'>Footer</footer>
     </>
   );
 }

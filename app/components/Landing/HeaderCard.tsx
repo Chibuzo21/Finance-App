@@ -10,7 +10,7 @@ type Props = {
 };
 export default function HeaderCard(props: Props) {
   return (
-    <header className='sticky top-0 z-30 backdrop-blur dark:supports-[backdrop-filter]:bg-[#29574d]/70 supports-[backdrop-filter]:bg-white/70 '>
+    <header className='sticky top-0 z-30 backdrop-blur dark:supports-[backdrop-filter]:bg-[#29574d]/70 supports-[backdrop-filter]:bg-white/70 w-full'>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-20 items-center justify-between'>
           <Link href='/' className='flex items-center gap-2'>

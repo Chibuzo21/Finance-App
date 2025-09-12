@@ -15,9 +15,9 @@ export default function sideNavProps({ path, Icon, text }: SideNav) {
     <li>
       <Link
         href={`/dashboard/settings/${path}`}
-        className={`py-2 px-2.5 flex items-center space-x-2 dark:hover:bg-gray-800 rounded-md hover:bg-gray-100 ${
+        className={`py-2 px-2.5 flex items-center space-x-2  rounded-md  ${
           pathname === `/dashboard/settings/${path}`
-            ? "bg-gray-100 dark:bg-gray-800"
+            ? "bg-gray-200 dark:bg-[#21423b]"
             : ""
         }`}>
         <Icon className='h-4 w-4' />

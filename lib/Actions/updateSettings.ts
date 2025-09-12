@@ -4,7 +4,6 @@ import { createClient } from "../supabase/server";
 export async function updateSettings(prevState: any, formData: FormData) {
   const validated = settingsSchema.safeParse({
     fullName: formData.get("fullName"),
-
     defaultView: formData.get("defaultView"),
   });
   // safeparse is being used to validate, it returns an error (if its exists) and a value for the data requested if there was no error

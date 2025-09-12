@@ -7,7 +7,11 @@ import { Moon, Sun } from "lucide-react";
 export default function DarkModeToggle() {
   const { theme, toggleTheme } = DarkMode();
   return (
-    <Button variant='ghost' size='base' onClick={toggleTheme}>
+    <Button
+      variant='ghost'
+      size='base'
+      onClick={toggleTheme}
+      className='cursor-pointer'>
       {theme === "dark" ? (
         <Moon className='h-4 w-4' />
       ) : (

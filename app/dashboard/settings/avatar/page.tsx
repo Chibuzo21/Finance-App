@@ -20,8 +20,15 @@ export default function Page() {
         {!state?.error && state?.message && (
           <Alert title={SuccessAlert}>{state?.message}</Alert>
         )}
-        <Input type='file' name='file' id='file' />
-        <SubmitButton>Upload Avatar</SubmitButton>
+        <Input
+          type='file'
+          name='file'
+          id='file'
+          className='border dark:text-gray-400 px-3 py-4 rounded-md w-[60%] dark:bg-[#29574d] text-gray-500 bg-gray-300 '
+        />
+        <SubmitButton className='bg-[#0b1916] rounded-md hover:bg-[#29574d] text-white dark:hover:bg-[#29574d] disabled:opacity-50 px-5 py-2'>
+          Upload Avatar
+        </SubmitButton>
       </form>
     </>
   );

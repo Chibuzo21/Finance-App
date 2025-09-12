@@ -67,7 +67,9 @@ export default function SettingsForm({ defaults }: { defaults: UserMetadata }) {
           {error}
         </p>
       ))}
-      <SubmitButton>Update settings</SubmitButton>
+      <SubmitButton className='bg-[#0b1916] rounded-md hover:bg-[#29574d] text-white dark:bg-white dark:hover:bg-[#29574d] disabled:opacity-50 px-5 py-2 dark:text-[#0b1916]'>
+        Update settings
+      </SubmitButton>
     </form>
   );
 }

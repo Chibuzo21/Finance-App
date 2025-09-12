@@ -13,15 +13,13 @@ export default function Loginform() {
   // the login represents the action that will take place when the form is submitted
 
   return (
-    <form action={formAction} className='space-y-2'>
-      <Input
-        type='email'
-        placeholder='name@example.com'
-        name='email'
-        required></Input>
+    <form action={formAction} className='space-y-3'>
+      <Input type='email' placeholder='Email' name='email' required />
+      <Input type='password' placeholder='Password' name='password' required />
+
       <SubmitButton
         type='submit'
-        className='w-full dark:bg-white dark:text-[#17332d] bg-[#17332d] flex justify-center text-white rounded-sm font-medium py-2'>
+        className='w-full dark:bg-white cursor-pointer dark:text-[#17332d] bg-[#17332d] flex justify-center text-white rounded-sm font-medium py-2'>
         Sign in with email
       </SubmitButton>
       <p
