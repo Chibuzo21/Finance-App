@@ -5,7 +5,7 @@ body {
   @apply dark:bg-[#17332d]   bg-slate-100 text-[#17332d] dark:text-white  min-h-screen flex flex-col;
 }
 .Wrapper {
-  @apply px-6;
+  @apply px-6 sm:px-10;
 }
 .errors {
   @apply text-red-500 mt-1;
