@@ -8,5 +8,10 @@ const options = {
 };
 
 export function FileCompressor(file: File) {
-  return imageCompression(file, options);
+  imageCompression(file, options);
+  if (file.size > 512 * 1024)
+    return {
+      error: true,
+      message: "File is too big after compression, Try a smaller image",
+    };
 }

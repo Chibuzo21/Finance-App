@@ -1,8 +1,6 @@
 "use server";
-
 import { createClient } from "../supabase/server";
-import { FileCompressor } from "./compressedImage";
-
+import sharp from "sharp";
 type initialState = {
   message: string;
   error: boolean;
@@ -29,17 +27,26 @@ export async function uploadAvatar(
   // then we use pop() to get the last element of the array which is the file extension ie png. pop removes the last element from an array and returns that element
   const fileName = `${Math.random()}.${FileExt}`;
   // Math.random() generates a random number between 0 and 1. we are using it to generate a random file name to prevent overwriting of files with the same name
+  // Convert File (browser API) to Buffer so sharp can process it
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
 
-  const compressedFile = await FileCompressor(file);
-  if (compressedFile.size > 512 * 1024)
+  // Compress + resize with sharp
+  const compressedBuffer = await sharp(buffer)
+    .resize(512, 512, { fit: "inside" }) // max 512px
+    .toFormat(FileExt === "png" ? "png" : "jpeg", { quality: 80 }) // keep extension, compress
+    .toBuffer();
+
+  // Check size (Supabase bucket limit is 512kb)
+  if (compressedBuffer.length > 512 * 1024) {
     return {
       error: true,
-      message: "File is too big after compression, Try a smaller image",
+      message: "File is too big after compression, try a smaller image",
     };
+  }
   const { error } = await supabase.storage
     .from("Avatars")
-    .upload(fileName, compressedFile);
-  // upload has two parameters fileName is the name it will bear in the supabase bucket, while file is the actual file gotten from the input tag
+    .upload(fileName, compressedBuffer);
   if (error) return { error: true, message: "Error uploading the file" };
 
   // Removing the old file

@@ -25,6 +25,7 @@
     "react-dom": "^19.0.0",
     "react-error-boundary": "^6.0.0",
     "react-hook-form": "^7.56.4",
+    "sharp": "^0.34.3",
     "zod": "^3.25.20"
   },
   "devDependencies": {
