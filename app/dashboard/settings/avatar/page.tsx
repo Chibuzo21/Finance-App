@@ -7,8 +7,8 @@ import { SuccessAlert, ErrorAlert } from "./components/styles";
 import { useActionState } from "react";
 
 const initialState = {
-  error: false,
   message: "",
+  error: false,
 };
 export default function Page() {
   const [state, formAction] = useActionState(uploadAvatar, initialState);
