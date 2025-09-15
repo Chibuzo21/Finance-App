@@ -1,6 +1,7 @@
 "use server";
+import { maxSize } from "zod/v4";
 import { createClient } from "../supabase/server";
-
+import imageCompression from "browser-image-compression";
 type initialState = {
   message: string;
   error: boolean;
@@ -27,9 +28,21 @@ export async function uploadAvatar(
   // then we use pop() to get the last element of the array which is the file extension ie png. pop removes the last element from an array and returns that element
   const fileName = `${Math.random()}.${FileExt}`;
   // Math.random() generates a random number between 0 and 1. we are using it to generate a random file name to prevent overwriting of files with the same name
+  const options = {
+    maxSizeMB: 0.5, // must be <=0.5MB(512kb bucket limit)
+    maxWidthOrHeight: 512, // keep dimensions reasonable
+    useWebWorker: true,
+  };
+  const compressedFile = await imageCompression(file, options);
+  if (compressedFile.size > 512 * 1024)
+    return {
+      error: true,
+      message: "File is too big after compression, Try a smaller image",
+    };
   const { error } = await supabase.storage
     .from("Avatars")
-    .upload(fileName, file);
+    .upload(fileName, compressedFile);
+  // upload has two parameters fileName is the name it will bear in the supabase bucket, while file is the actual file gotten from the input tag
   if (error) return { error: true, message: "Error uploading the file" };
 
   // Removing the old file
