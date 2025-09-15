@@ -11,7 +11,6 @@ import { UserMetadata } from "@supabase/supabase-js";
 import Input from "@/app/components/Input";
 import Label from "@/app/components/Label";
 import DateRangeSelect from "@/app/components/date-range-select";
-import FormError from "@/app/components/form-error";
 
 type SettingsFormErrors = {
   fullName?: string[];
@@ -19,7 +18,7 @@ type SettingsFormErrors = {
   // [key: string]: string[] | undefined;
 };
 
-type SettingsFormState = {
+export type SettingsFormState = {
   error?: boolean;
   message: string;
   errors: SettingsFormErrors;

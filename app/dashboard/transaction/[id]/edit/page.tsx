@@ -6,7 +6,12 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Edit Metadata",
 };
-export default async function page({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+export default async function page({ params }: PageProps) {
   const { id } = await params;
   const supabase = await createClient();
   const { data: transaction, error } = await supabase

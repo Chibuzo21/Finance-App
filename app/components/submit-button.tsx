@@ -2,7 +2,7 @@ import React from "react";
 import { useFormStatus } from "react-dom";
 import { Loader } from "lucide-react";
 import { ButtonProps } from "./button";
-import Button from "./button";
+
 export default function SubmitButton(props: ButtonProps) {
   const { pending } = useFormStatus();
   // useFormStatus returns the status of the form element and must be defined as a child of the <form> element

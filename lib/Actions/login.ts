@@ -3,7 +3,11 @@ import { createClient } from "../supabase/server";
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-export async function login(prevState: any, formData: FormData) {
+type initialState = {
+  message: string;
+  error: boolean;
+};
+export async function login(prevState: initialState, formData: FormData) {
   // console.log(formData);
   // this runs in nodejs and not on the browser because of the use server indicated
   const email = formData.get("email") as string;

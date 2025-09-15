@@ -1,7 +1,7 @@
 import React from "react";
 import { TransactionProps } from "@/app/components/transaction-item";
 import BaseTrend from "@/app/components/Trend";
-import { trendProps } from "@/app/components/Trend";
+
 import { createClient } from "@/lib/supabase/server";
 
 export type TrendsType = {
@@ -10,7 +10,7 @@ export type TrendsType = {
 };
 export default async function Trends({ type, range }: TrendsType) {
   const supabase = await createClient();
-  let { data, error } = await supabase.rpc("calculate_total", {
+  const { data, error } = await supabase.rpc("calculate_total", {
     type_arg: type,
     range_arg: range,
     // This more like fetching from an api and not a direction to the database

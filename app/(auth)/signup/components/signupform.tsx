@@ -31,7 +31,7 @@ export default function SignUpForm() {
       confirmPassword: "",
     },
   });
-  const router = useRouter();
+
   const onSubmit = async (data: FormData) => {
     try {
       const result = await SignUpNewUser(data);
@@ -39,6 +39,7 @@ export default function SignUpForm() {
         setmessage({ ...message, success: true });
       }
     } catch (error) {
+      console.error(error);
       setmessage({ ...message, Error: true });
     }
     console.log(data);
@@ -109,8 +110,8 @@ export default function SignUpForm() {
         <p className='errors'>An unknown error occured</p>
       ) : message.success ? (
         <p className='text-green-500 text-center'>
-          "Signup successful! Please check your email to confirm your account
-          before logging in."
+          Signup successful! Please check your email to confirm your account
+          before logging in.
         </p>
       ) : (
         ""

@@ -1,10 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ShieldCheck, LineChart, Wallet, Smartphone } from "lucide-react";
-import PriceCard from "./components/Landing/PriceCard";
-import TrustCard from "./components/Landing/TrustCard";
-import FeatureCard from "./components/Landing/FeatureCard";
+
 import Features from "./components/Landing/Features";
 import Trust from "./components/Landing/Trust";
 import Price from "./components/Landing/Price";

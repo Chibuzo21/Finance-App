@@ -1,7 +1,12 @@
 "use server";
 import { settingsSchema } from "@/app/dashboard/components/validation";
 import { createClient } from "../supabase/server";
-export async function updateSettings(prevState: any, formData: FormData) {
+import { SettingsFormState } from "@/app/dashboard/settings/components/settings-form";
+
+export async function updateSettings(
+  prevState: SettingsFormState,
+  formData: FormData
+) {
   const validated = settingsSchema.safeParse({
     fullName: formData.get("fullName"),
     defaultView: formData.get("defaultView"),

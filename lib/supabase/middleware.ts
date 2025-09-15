@@ -19,7 +19,7 @@ export async function updateSession(request: NextRequest) {
           // cookies.getAll is a method that reads the cookies through the request to know the user we are talking to
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
           // cookies.setAll allows supabsae to updAte session cookies when needed both on the request or response

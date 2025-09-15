@@ -1,4 +1,4 @@
-import { sizes, variants } from "@/lib/variants";
+import { sizes } from "@/lib/variants";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";

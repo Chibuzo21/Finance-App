@@ -9,7 +9,7 @@ export async function fetchTransaction(
   const supabase = await createClient();
 
   // always add await to this function
-  let { data, error } = await supabase.rpc("fetch_transactions", {
+  const { data, error } = await supabase.rpc("fetch_transactions", {
     limit_arg: limit,
     offset_arg: offset,
     range_arg: range,

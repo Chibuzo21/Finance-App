@@ -11,7 +11,7 @@ export default function Loginpage() {
       </div>
       <Loginform />
       <p className='text-center'>
-        Don't have an account ?
+        No account ?
         <span>
           <Link href='/signup' className='dark:text-[#021712] font-semibold '>
             {" "}

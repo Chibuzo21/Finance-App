@@ -1,6 +1,14 @@
 "use server";
 import { createClient } from "../supabase/server";
-export async function uploadAvatar(prevState: any, formData: FormData) {
+
+type initialState = {
+  message: string;
+  error: boolean;
+};
+export async function uploadAvatar(
+  prevState: initialState,
+  formData: FormData
+) {
   const supabase = await createClient();
   const file = formData.get("file") as File | null;
   // file returns the name of the file being uploaded eg image.png, pics.jpeg

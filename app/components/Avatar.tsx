@@ -18,7 +18,7 @@ export default async function Avatar({ width = 32, height = 32 }: HW) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  let Avatar = user?.user_metadata.avatar;
+  const Avatar = user?.user_metadata.avatar;
   if (!user || !Avatar) {
     return <CircleUser className='h-6 w-6' />;
   }

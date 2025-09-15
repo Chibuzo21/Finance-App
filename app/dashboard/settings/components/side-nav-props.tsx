@@ -9,7 +9,7 @@ type SideNav = {
   Icon: LucideIcon;
   text: string;
 };
-export default function sideNavProps({ path, Icon, text }: SideNav) {
+export default function SideNavProps({ path, Icon, text }: SideNav) {
   const pathname = usePathname();
   return (
     <li>

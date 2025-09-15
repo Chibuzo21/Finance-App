@@ -5,7 +5,7 @@ import { TransactionProps } from "@/app/components/transaction-item";
 import TransactionSummaryItem from "@/app/components/transaction-summary-item";
 import Seperator from "@/app/components/seperator";
 import { groupAndSumTransactionsByDate } from "@/lib/utils";
-import Button from "@/app/components/button";
+
 import { TrendsType } from "./Trends";
 import { fetchTransaction } from "@/lib/Actions/fetchTransaction";
 import { Loader } from "lucide-react";
@@ -53,7 +53,7 @@ export default function TransactionList({
   const handleClick = async () => {
     setLoading(true);
     try {
-      let nextTransaction: null | User[] = await fetchTransaction(
+      const nextTransaction: null | User[] = await fetchTransaction(
         range,
         transaction.length,
         5

@@ -2,7 +2,6 @@
 import { LogOut } from "lucide-react";
 import SubmitButton from "./submit-button";
 import { signOut } from "@/lib/Actions/signout";
-import { variants } from "@/lib/variants";
 
 export default function SignOut() {
   return (
