@@ -7,6 +7,6 @@ const options = {
   useWebWorker: true,
 };
 
-export async function FileCompressor(file: File) {
-  await imageCompression(file, options);
+export function FileCompressor(file: File) {
+  return imageCompression(file, options);
 }
