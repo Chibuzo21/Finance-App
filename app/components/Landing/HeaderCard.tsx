@@ -23,7 +23,7 @@ export default function HeaderCard(props: Props) {
           {/* Centered Menu */}
           {props.children}
 
-          <div className='flex items-center gap-3'>
+          <div className='flex items-center sm:gap-3 gap-1'>
             <DarkModeToggle />
             <Link
               // href='/login'
