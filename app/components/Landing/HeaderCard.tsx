@@ -28,7 +28,7 @@ export default function HeaderCard(props: Props) {
             <Link
               // href='/login'
               href={props.nav1Path}
-              className='hidden sm:inline-block  rounded-xl px-4 text-sm font-semibold  '>
+              className='inline-block  rounded-xl px-4 text-sm font-semibold  '>
               {props.nav1}
             </Link>
             <div className='inline-flex items-center gap-2 text-sm font-semibold hover:text-white shadow-sm hover:shadow transition-shadow  '>
