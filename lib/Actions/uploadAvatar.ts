@@ -55,5 +55,5 @@ export async function uploadAvatar(
   if (dataUpdateError)
     return { error: true, message: "Error while updating user data" };
 
-  return { message: "Avatar uploaded successfully" };
+  return { error: false, message: "Avatar uploaded successfully" };
 }
