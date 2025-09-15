@@ -48,7 +48,7 @@ export default async function Page({
   return (
     <main>
       <section className='mb-8 flex items-center justify-between'>
-        <h1 className='text-4xl font-semibold'>Summary</h1>
+        <h1 className='sm:text-4xl text-2xl font-semibold'>Summary</h1>
         <aside>
           <Range defaultView={settings?.defaultView} />
         </aside>

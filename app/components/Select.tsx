@@ -7,7 +7,7 @@ export default forwardRef(function Select(props: selectProps, ref: refprops) {
     <select
       ref={ref}
       {...props}
-      className='w-full rounded-md bg-white dark:border-[#29574d] shadow-sm border-gray-300 dark:bg-[#0b1916]'>
+      className='w-full rounded-md bg-white dark:border-[#29574d] shadow-sm border-gray-300 dark:bg-[#0b1916] text-sm sm:text-base'>
       {props.children}
     </select>
   );
