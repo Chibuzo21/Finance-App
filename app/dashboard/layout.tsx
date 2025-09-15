@@ -19,7 +19,7 @@ export default async function Layout({
           user && (
             <div className='flex hover:bg-[#1a3a3258] px-3  rounded-md items-center space-x-4'>
               <Avatar />
-              <span>
+              <span className='hidden sm:flex'>
                 {user?.user_metadata.fullName ?? user?.user_metadata.username}
               </span>
               {/* Recall we added the fullname property in our actions updateSettings.ts */}
