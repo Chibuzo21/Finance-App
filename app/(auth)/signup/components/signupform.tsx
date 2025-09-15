@@ -9,7 +9,6 @@ import React, { useState } from "react";
 import Field from "./Field";
 import { Loader } from "lucide-react";
 import { SignUpNewUser } from "@/lib/Actions/signup";
-import { useRouter } from "next/navigation";
 
 export type FormData = z.infer<typeof FormSchema>;
 export default function SignUpForm() {
