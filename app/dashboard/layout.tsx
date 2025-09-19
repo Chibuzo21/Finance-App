@@ -35,7 +35,9 @@ export default async function Layout({
         }
       />
 
-      <div className='Wrapper max-w-xl py-10 mx-auto container'>{children}</div>
+      <div className='Wrapper md:max-w-7xl max-w-xl py-10 mx-auto container'>
+        {children}
+      </div>
     </>
   );
 }
